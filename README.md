@@ -12,3 +12,8 @@ Lesson #01:
 Objects in JAVA.
 Creation of the Cats package and the Cat class.
 _____________________________________________________
+Lesson #02:
+
+Interaction with the user.
+Creation of the method for getting data from the user.
+_____________________________________________________
