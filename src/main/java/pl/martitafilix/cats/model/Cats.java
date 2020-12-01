@@ -7,15 +7,16 @@ import java.util.Scanner;
 
 public class Cats {
 
+	static Scanner SC = new Scanner(System.in);
+	static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-mm-dd");
+	
 	public static void main(String[] args) throws ParseException {
 
-		SimpleDateFormat sdf;
 		Date date_of_birth;
 		Cat kitten, user_cat;
 		
 		// Date formatting 
-		sdf =  new SimpleDateFormat("yyyy-mm-dd");
-		date_of_birth = sdf.parse("2020-10-15");
+		date_of_birth = SDF.parse("2020-10-15");
 		
 		kitten = new Cat("Kitty", date_of_birth, (float) 1.0, "Mommy");
 		
@@ -26,21 +27,37 @@ public class Cats {
 		System.out.println(user_cat.introduceYourself());
 	}
 	
-	private static void gettingCatFromUser(Cat cat) throws ParseException {
-		
-		Scanner sc 				= new Scanner(System.in);
-		SimpleDateFormat sdf 	= new SimpleDateFormat("yyyy-mm-dd");
-		
+	private static void gettingCatFromUser(Cat cat) {
+				
 		System.out.print("Podaj imie swojego kota: ");
-		cat.setName(sc.nextLine());
+		cat.setName(getUserInput());
 		
-		System.out.print("Data jego urodzenia (rrrr-mm-dd): ");
-		cat.setDate_of_birth(sdf.parse(sc.nextLine()));
+		do {
+			System.out.print("Data jego urodzenia (rrrr-mm-dd): ");
+			try {
+				cat.setDate_of_birth(SDF.parse(getUserInput()));
+			} catch(ParseException pe) {
+				System.out.println("Niepoprawna data! Podaj w formacie (rrrr-mm-dd).");
+			}
+		} while(cat.getDate_of_birth() == null);
 		
-		System.out.print("Waga kota: ");
-		cat.setWeight(sc.nextFloat());
-		
+		do {
+			System.out.print("Waga kota: ");
+			try {
+				cat.setWeight(Float.valueOf(getUserInput()));
+			}
+			catch (NumberFormatException nfe) {
+				System.out.println("Podano niepoprawny format wagi! Podaj w formacie(10.0).");
+			}
+		} while (cat.getWeight() == null);
+			
 		System.out.print("Imię opiekuna: ");
-		cat.setName_of_catKeeper(sc.next());		
+		cat.setName_of_catKeeper(getUserInput());	
+	
+		System.out.println("Dziękuję, to wszystko!");
+	}
+	
+	public static String getUserInput() {
+		return SC.nextLine().trim();
 	}
 }

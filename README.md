@@ -17,3 +17,8 @@ Lesson #02:
 Interaction with the user.
 Creation of the method for getting data from the user.
 _____________________________________________________
+Lesson #03:
+
+Type conversion, exception handling. 
+Modifying the Cats class to handle exceptions when the user input. 
+_____________________________________________________

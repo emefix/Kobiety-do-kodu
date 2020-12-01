@@ -55,7 +55,7 @@ public class Cat {
 
 		String txt;
 		txt =  "Cześć, jestem "			+ this.name + " - ";
-		txt += "\nUrodziłem się dn: " 	+ this.date_of_birth + " - ";
+		txt += "\nUrodziłem się dn: " 	+ Cats.SDF.format(this.date_of_birth) + " - ";
 		txt += "\nWażę: " 				+ this.weight 	+ " - ";
 		txt += "\nOpiekuje się mną: " 	+ this.name_of_catKeeper;
 		return txt;
