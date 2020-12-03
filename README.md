@@ -22,3 +22,10 @@ Lesson #03:
 Type conversion, exception handling. 
 Modifying the Cats class to handle exceptions when the user input. 
 _____________________________________________________
+Lesson #04:
+
+Regex - regular expressions. 
+Creation of regular expressions corresponding to the date and weight of the Cat class. 
+Renamed the Cats class to the CatsApp class. Adding the GettingCatFromUser class and the CatShelter class. 
+The CatShelter class contents the collection of the Cat objects. Creating the Cat objects follow using the GettingCatFromUser class in which datas of the Cat object are getting from user.  
+_____________________________________________________

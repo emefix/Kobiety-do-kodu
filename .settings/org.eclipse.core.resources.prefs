@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/main/java/pl/martitafilix/cats/model/Cat.java=UTF-8
-encoding//src/main/java/pl/martitafilix/cats/model/Cats.java=UTF-8
+encoding//src/main/java/pl/martitafilix/cats/model/CatsApp.java=UTF-8
+encoding//src/main/java/pl/martitafilix/cats/model/GettingCatFromUser.java=UTF-8

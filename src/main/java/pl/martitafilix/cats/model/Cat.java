@@ -1,13 +1,17 @@
 package pl.martitafilix.cats.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cat {
 
+	static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-mm-dd");
+	
 	private	String	name;
 	private	Date 	date_of_birth;
 	private Float 	weight;
 	private String 	name_of_catKeeper;
+
 	
 	public Cat() {}
 	
@@ -55,7 +59,7 @@ public class Cat {
 
 		String txt;
 		txt =  "Cześć, jestem "			+ this.name + " - ";
-		txt += "\nUrodziłem się dn: " 	+ Cats.SDF.format(this.date_of_birth) + " - ";
+		txt += "\nUrodziłem się dn: " 	+ SDF.format(this.date_of_birth) + " - ";
 		txt += "\nWażę: " 				+ this.weight 	+ " - ";
 		txt += "\nOpiekuje się mną: " 	+ this.name_of_catKeeper;
 		return txt;
