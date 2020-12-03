@@ -29,3 +29,7 @@ Creation of regular expressions corresponding to the date and weight of the Cat 
 Renamed the Cats class to the CatsApp class. Adding the GettingCatFromUser class and the CatShelter class. 
 The CatShelter class contents the collection of the Cat objects. Creating the Cat objects follow using the GettingCatFromUser class in which datas of the Cat object are getting from user.  
 _____________________________________________________
+Lesson #05:
+
+Collections in Java. 
+Modified the CatShelter class, created the addCat() method which adds the new cat to the List collection of the cats. In the main method of the CatsApp class cats objects are created and they are added to the CatShelter class. 
