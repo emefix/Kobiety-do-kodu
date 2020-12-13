@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Cat {
 
-	static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-mm-dd");
+	public static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-mm-dd");
 	
 	private	String	name;
 	private	Date 	date_of_birth;
@@ -58,10 +58,10 @@ public class Cat {
 	public String introduceYourself() {
 
 		String txt;
-		txt =  "Cześć, jestem "			+ this.name + " - ";
-		txt += "\nUrodziłem się dn: " 	+ SDF.format(this.date_of_birth) + " - ";
-		txt += "\nWażę: " 				+ this.weight 	+ " - ";
-		txt += "\nOpiekuje się mną: " 	+ this.name_of_catKeeper;
+		txt =  "Kot: "			+ this.name + "\n";
+		txt += "data ur.: " 	+ SDF.format(this.date_of_birth) + "\n";
+		txt += "waga: " 		+ this.weight 	+ "\n";
+		txt += "opiekun: " 		+ this.name_of_catKeeper;
 		return txt;
 	}
 }

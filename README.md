@@ -33,3 +33,10 @@ Lesson #05:
 
 Collections in Java. 
 Modified the CatShelter class, created the addCat() method which adds the new cat to the List collection of the cats. In the main method of the CatsApp class cats objects are created and they are added to the CatShelter class. 
+_____________________________________________________
+Lesson #06:
+
+Working with collections. 
+Writing the new class describing interface of the application, it's the AppInterface class. Used the JFrame class from javax.swing package. 
+The ButtonHandling class implements the interface ActionListener. The AddingCatButtonHandling and ShowCatsButtonHandling objects are created when a user click on the buttons, and their classes inherited from the ButtonHandling class. These classes adding the new cat and showing all cats from the cat shelter, respectively. 
+Renamed and modified the GettingCatFromUser class to the GettingDataFromUser in order to this class getting all data from the user. 

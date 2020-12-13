@@ -9,10 +9,10 @@ public class CatShelter {
 		
 	public void addCat(Cat cat) {
 		this.cats.add(cat);
-		System.out.println("Added the cat to the cat shelter.");
+//		System.out.println("Added the cat to the cat shelter.");
 	}
 	
-	public void showCats() {
-		for (Cat c : cats)	System.out.println(c.introduceYourself() + "\n");
+	public List<Cat> getCats() {
+		return this.cats;
 	}
 }
