@@ -4,3 +4,6 @@ encoding//src/main/java/pl/martitafilix/cats/controller/GettingDataFromUser.java
 encoding//src/main/java/pl/martitafilix/cats/controller/ShowCatsButtonHandling.java=UTF-8
 encoding//src/main/java/pl/martitafilix/cats/model/Cat.java=UTF-8
 encoding//src/main/java/pl/martitafilix/cats/view/AppInterface.java=UTF-8
+encoding//src/main/java/pl/martitafilix/celebrity/controller/CelebrityGUIController.java=UTF-8
+encoding//src/main/java/pl/martitafilix/celebrity/view/CelebrityGUI.java=UTF-8
+encoding//src/main/java/pl/martitafilix/celebrity/view/GettingCelebrityDialog.java=UTF-8

@@ -40,3 +40,19 @@ Working with collections.
 Writing the new class describing interface of the application, it's the AppInterface class. Used the JFrame class from javax.swing package. 
 The ButtonHandling class implements the interface ActionListener. The AddingCatButtonHandling and ShowCatsButtonHandling objects are created when a user click on the buttons, and their classes inherited from the ButtonHandling class. These classes adding the new cat and showing all cats from the cat shelter, respectively. 
 Renamed and modified the GettingCatFromUser class to the GettingDataFromUser in order to this class getting all data from the user. 
+
+_____________________________________________________
+Lesson #Lambda expressions and streams:
+
+Creation a new celebrity app.
+To assign a lambda expression, we need an interface with the only one method. Such an interface is called a functional interface. 
+Functional interface have got the only one method. 
+When we use a lambda expression, do not have to create a class implementing an interface.
+An anonymous class is created without define a class implements an interface. We do not have to use the CheckIfSinger, CheckIfActor, CheckIfDancer classes implementing the CheckTalent interface. 
+
+The stream represents a sequence of elements and allows to do various operations on them, for example: filter(), sorted(), collect(), forEach(). With these operations, we can: 
+select specific items from the collection that interest us; 
+sort the collection; 
+save the results to a new collection; 
+execute commands on its elements. 
+To create a stream of any collection, we need to use the stream() method.
