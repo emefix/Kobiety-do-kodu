@@ -4,5 +4,11 @@
   <artifactId>KobietyDoKodu</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Kobiety do kodu</name>
-  <description>Kurs Javy autorstwa kobietydokodu.pl.</description>
+  <description>Aplikacja realizowana jako część praktyczna kursu na stronie kobietydokodu.pl</description>
+  <url>http://kobietydokodu.pl</url>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>Celebrity</module>
+  	<module>Cats</module>
+  </modules>
 </project>

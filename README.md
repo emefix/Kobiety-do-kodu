@@ -40,7 +40,6 @@ Working with collections.
 Writing the new class describing interface of the application, it's the AppInterface class. Used the JFrame class from javax.swing package. 
 The ButtonHandling class implements the interface ActionListener. The AddingCatButtonHandling and ShowCatsButtonHandling objects are created when a user click on the buttons, and their classes inherited from the ButtonHandling class. These classes adding the new cat and showing all cats from the cat shelter, respectively. 
 Renamed and modified the GettingCatFromUser class to the GettingDataFromUser in order to this class getting all data from the user. 
-
 _____________________________________________________
 Lesson #Lambda expressions and streams:
 
@@ -56,3 +55,8 @@ sort the collection;
 save the results to a new collection; 
 execute commands on its elements. 
 To create a stream of any collection, we need to use the stream() method.
+_____________________________________________________
+Lesson #Maven project configuration:
+
+POM file has been modified. 
+Modules and needed dependencies were added to break down the application well.

@@ -3,19 +3,19 @@ package pl.martitafilix.cats.view;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import pl.martitafilix.cats.controller.ButtonHandling;
+import pl.martitafilix.cats.model.CatShelter;
 import pl.martitafilix.cats.controller.AddingCatButtonHandling;
 import pl.martitafilix.cats.controller.ShowCatsButtonHandling;
-import pl.martitafilix.cats.model.CatShelter;
+import pl.martitafilix.cats.controller.ButtonHandling;
 
 public class AppInterface extends JFrame {
-	
 
 	//region Constructor
 	public AppInterface() {
@@ -75,6 +75,8 @@ public class AppInterface extends JFrame {
 	// endregion	
 
 	//region Fields	
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel	_panel_choiceButtons;
 	private JPanel	_panel_showInfo;
 
