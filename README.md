@@ -56,7 +56,15 @@ save the results to a new collection;
 execute commands on its elements. 
 To create a stream of any collection, we need to use the stream() method.
 _____________________________________________________
-Lesson #Maven project configuration:
+Lesson #07: 
 
+Maven project configuration. 
 POM file has been modified. 
 Modules and needed dependencies were added to break down the application well.
+
+_____________________________________________________
+Lesson #08: 
+
+Web application. 
+Webapp moduls and needed Spring dependecies have been added. 
+

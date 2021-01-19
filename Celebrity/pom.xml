@@ -11,5 +11,6 @@
   <modules>
   	<module>Celebrity-domain</module>
   	<module>Celebrity-application</module>
+  	<module>Celebrity-webapp</module>
   </modules>
 </project>
