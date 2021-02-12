@@ -68,3 +68,26 @@ Lesson #08:
 Web application. 
 Webapp moduls and needed Spring dependecies have been added. 
 
+_____________________________________________________
+Lesson #09: Spring MVC
+
+Configuration of the Spring Web (MVC) framework. The DispatcherServlet is a servlet that dispatches the HTTP requests to controllers and offers other functionality that facilitates the development of web applications, and is declared in the "web.xml" of the web application. 
+
+1. After receiving an HTTP request, DispatcherServlet consults the HandlerMapping to call the appropriate Controller. 
+2. The Controller takes the request and calls the appropriate service methods based on used GET or POST method. The service method will set model data based on defined business logic and returns view name to the DispatcherServlet. 
+3. The DispatcherServlet will take help from ViewResolver to pickup the defined view for the request. 
+4. Once view is finalized, The DispatcherServlet passes the model data to the view which is finally rendered on the browser. 
+
+The web.xml file will be kept in the WebContent/WEB-INF directory of the web application. 
+Next, <servlet-mapping> tag indicates what URLs will be handled by which DispatcherServlet. 
+
+The [servlet-name]-servlet.xml file will be used to create the beans defined, overriding the definitions of any beans defined with the same name in the global scope.
+
+The <context:component-scan...> tag will be use to activate Spring MVC annotation scanning capability which allows to make use of annotations like @Controller and @RequestMapping etc.
+
+The InternalResourceViewResolver will have rules defined to resolve the view names. 
+
+The DispatcherServlet delegates the request to the controllers to execute the functionality specific to it. The @Controller annotation indicates that a particular class serves the role of a controller. The @RequestMapping annotation is used to map a URL to either an entire class or a particular handler method.
+
+-> https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm
+
