@@ -1,10 +1,10 @@
 # Kobiety-do-kodu
-Kurs javy autorstwa kobietydokodu.pl.
+The java course comes from kobietydokodu.pl.
 
 _____________________________________________________
 Lesson #00:
 
-Object Oriented Programming JAVA (OOP).
+Object-Oriented Programming JAVA (OOP).
 More information in the file named "Programowanie obiektowe.docx".
 _____________________________________________________
 Lesson #01:
@@ -27,46 +27,45 @@ Lesson #04:
 Regex - regular expressions. 
 Creation of regular expressions corresponding to the date and weight of the Cat class. 
 Renamed the Cats class to the CatsApp class. Adding the GettingCatFromUser class and the CatShelter class. 
-The CatShelter class contents the collection of the Cat objects. Creating the Cat objects follow using the GettingCatFromUser class in which datas of the Cat object are getting from user.  
+The CatShelter class contains the collection of the Cat objects. Creating the Cat objects follows using the GettingCatFromUser class in which data of the Cat object are getting from a user.  
 _____________________________________________________
 Lesson #05:
 
 Collections in Java. 
-Modified the CatShelter class, created the addCat() method which adds the new cat to the List collection of the cats. In the main method of the CatsApp class cats objects are created and they are added to the CatShelter class. 
+Modified the CatShelter class, created the addCat() method which adds the new cat to the List collection of the cats. In the main method of the CatsApp class, cat objects are created and they are added to the CatShelter class. 
 _____________________________________________________
 Lesson #06:
 
 Working with collections. 
-Writing the new class describing interface of the application, it's the AppInterface class. Used the JFrame class from javax.swing package. 
-The ButtonHandling class implements the interface ActionListener. The AddingCatButtonHandling and ShowCatsButtonHandling objects are created when a user click on the buttons, and their classes inherited from the ButtonHandling class. These classes adding the new cat and showing all cats from the cat shelter, respectively. 
-Renamed and modified the GettingCatFromUser class to the GettingDataFromUser in order to this class getting all data from the user. 
+Writing the new class describing the interface of the application, it's the AppInterface class. Used the JFrame class from javax.swing package. 
+The ButtonHandling class implements the interface ActionListener. The AddingCatButtonHandling and ShowCatsButtonHandling objects are created when a user clicks on the buttons, and their classes are inherited from the ButtonHandling class. These classes adding the new cat and showing all cats from the cat shelter, respectively. 
+Renamed and modified the GettingCatFromUser class to the GettingDataFromUser to this class getting all data from the user. 
 _____________________________________________________
 Lesson #Lambda expressions and streams:
 
-Creation a new celebrity app.
-To assign a lambda expression, we need an interface with the only one method. Such an interface is called a functional interface. 
-Functional interface have got the only one method. 
+Creation of a new celebrity app.
+To assign a lambda expression, we need an interface with only one method. Such an interface is called a functional interface. 
+The functional interface has got the only one method. 
 When we use a lambda expression, do not have to create a class implementing an interface.
-An anonymous class is created without define a class implements an interface. We do not have to use the CheckIfSinger, CheckIfActor, CheckIfDancer classes implementing the CheckTalent interface. 
+An anonymous class is created without defining a class that implements an interface. We do not have to use the CheckIfSinger, CheckIfActor, CheckIfDancer classes implementing the CheckTalent interface. 
 
 The stream represents a sequence of elements and allows to do various operations on them, for example: filter(), sorted(), collect(), forEach(). With these operations, we can: 
-select specific items from the collection that interest us; 
+select specific items from the collection that interests us; 
 sort the collection; 
 save the results to a new collection; 
 execute commands on its elements. 
 To create a stream of any collection, we need to use the stream() method.
 _____________________________________________________
-Lesson #07: 
+Lesson #07: Maven
 
 Maven project configuration. 
-POM file has been modified. 
+The POM file has been modified. 
 Modules and needed dependencies were added to break down the application well.
 
 _____________________________________________________
-Lesson #08: 
+Lesson #08: Web application
 
-Web application. 
-Webapp moduls and needed Spring dependecies have been added. 
+Webapp modules and needed Spring dependencies have been added. 
 
 _____________________________________________________
 Lesson #09: Spring MVC
@@ -74,16 +73,16 @@ Lesson #09: Spring MVC
 Configuration of the Spring Web (MVC) framework. The DispatcherServlet is a servlet that dispatches the HTTP requests to controllers and offers other functionality that facilitates the development of web applications, and is declared in the "web.xml" of the web application. 
 
 1. After receiving an HTTP request, DispatcherServlet consults the HandlerMapping to call the appropriate Controller. 
-2. The Controller takes the request and calls the appropriate service methods based on used GET or POST method. The service method will set model data based on defined business logic and returns view name to the DispatcherServlet. 
+2. The Controller takes the request and calls the appropriate service methods based on the used GET or POST method. The service method will set model data based on defined business logic and returns the view name to the DispatcherServlet. 
 3. The DispatcherServlet will take help from ViewResolver to pickup the defined view for the request. 
-4. Once view is finalized, The DispatcherServlet passes the model data to the view which is finally rendered on the browser. 
+4. Once the view is finalized, The DispatcherServlet passes the model data to the view which is finally rendered on the browser. 
 
 The web.xml file will be kept in the WebContent/WEB-INF directory of the web application. 
-Next, <servlet-mapping> tag indicates what URLs will be handled by which DispatcherServlet. 
+Next, the <servlet-mapping> tag indicates what URLs will be handled by which DispatcherServlet. 
 
 The [servlet-name]-servlet.xml file will be used to create the beans defined, overriding the definitions of any beans defined with the same name in the global scope.
 
-The <context:component-scan...> tag will be use to activate Spring MVC annotation scanning capability which allows to make use of annotations like @Controller and @RequestMapping etc.
+The <context:component-scan...> tag will be used to activate Spring MVC annotation scanning capability which allows making use of annotations like @Controller and @RequestMapping etc.
 
 The InternalResourceViewResolver will have rules defined to resolve the view names. 
 
@@ -91,3 +90,11 @@ The DispatcherServlet delegates the request to the controllers to execute the fu
 
 -> https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm
 
+_____________________________________________________
+Lesson #10: Spring MVC - forms and views
+
+Tags use in views and a proper form handling using taglibs of JSTL (Java Standard Tag Library). 
+TagLib is a library of tags, that are artifacts. These artifacts we can use in views instead of standard classes. 
+The EL (Expression Language) is a standard for expressions and scrips in views and use by ${}. The El can be ignored by isElLIgnored=true.
+
+In the Celebrity app, there is a form of adding a new celebrity. It works with GET and POST requests. This form is validated with @Valid annotation using the Hibernate Validator. To handle the form it is needed a DTO object (data transfer object). The DTO object will be a model attribute with @ModelAttribute annotation of a request method. A BindingResult object checks whether the form was properly verified.

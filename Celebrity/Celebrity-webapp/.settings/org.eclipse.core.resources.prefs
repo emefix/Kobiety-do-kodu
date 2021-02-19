@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/main/java/pl/martitafilix/celebrities/CelebrityController.java=UTF-8
-encoding//src/main/webapp/WEB-INF/views/glowny.jsp=UTF-8
+encoding//src/main/java/pl/martitafilix/celebrities/controllers/CelebrityController.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/info.jsp=UTF-8
+encoding//src/main/webapp/index.jsp=UTF-8
