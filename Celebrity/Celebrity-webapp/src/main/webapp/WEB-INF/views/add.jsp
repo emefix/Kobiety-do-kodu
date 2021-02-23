@@ -53,8 +53,9 @@
 		 <p><a href="<c:url value="list"/>">Back to celebrity list</a></p><br />
 		
 		<div align="center">
-			<h1>Adding the new celebrity</h1>
+			<h1>Adding a new celebrity</h1>
 			<c:url var="actionUrl" value="/add" />
+			
 			<form:form modelAttribute="celebrityDTO" method="POST" action="${actionUrl}"> 
 				<form:label path="name">Name:</form:label>
 				<form:input type="text" path="name" /><br />

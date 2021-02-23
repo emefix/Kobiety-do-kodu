@@ -33,7 +33,7 @@
 	<bean 
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
 		id="messageSource">
-		<property name="basename"><value>/WEB-INF/messages"</value></property>
+		<property name="basename"><value>/WEB-INF/messages</value></property>
 	</bean>
 	
 </beans>
