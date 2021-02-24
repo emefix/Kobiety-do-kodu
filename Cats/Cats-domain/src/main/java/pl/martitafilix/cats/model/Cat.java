@@ -7,6 +7,7 @@ public class Cat {
 
 	public static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-mm-dd");
 	
+	private Integer id;
 	private	String	name;
 	private	Date 	date_of_birth;
 	private Float 	weight;
@@ -15,12 +16,29 @@ public class Cat {
 	
 	public Cat() {}
 	
+	public Cat(Integer id, String name, Date date_of_birth, Float weight, String name_of_catKeeper) {
+		
+		this.id 			= id;
+		this.name 			= name;
+		this.date_of_birth 	= date_of_birth;
+		this.weight	 		= weight;
+		this.name_of_catKeeper = name_of_catKeeper;
+	}
+	
 	public Cat(String name, Date date_of_birth, Float weight, String name_of_catKeeper) {
 
 		this.name = name;
 		this.date_of_birth = date_of_birth;
 		this.weight = weight;
 		this.name_of_catKeeper = name_of_catKeeper;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {

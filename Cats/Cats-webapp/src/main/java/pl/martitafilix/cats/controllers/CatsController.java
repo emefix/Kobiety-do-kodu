@@ -13,20 +13,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pl.martitafilix.cats.CatShelter;
+import pl.martitafilix.cats.dao.JdbcCatDAO;
 import pl.martitafilix.cats.dto.CatDTO;
 import pl.martitafilix.cats.model.Cat;
 
 @Controller
 public class CatsController {
 
+//	@Autowired private CatShelter catShelter;
+	
 	@Autowired
-	private CatShelter catShelter;
+	private JdbcCatDAO jdbcCatDAO;
 	
 	@RequestMapping("/list")
 	public String catList(Model model) {
 		
-		model.addAttribute("cats", catShelter.getCats());
+		model.addAttribute("cats", jdbcCatDAO.getCats());
 		return "list"; 
 	}
 	
@@ -52,7 +54,8 @@ public class CatsController {
 			}
 			cat.setWeight(catDTO.getWeight());
 			cat.setName_of_catKeeper(catDTO.getName_of_catKeeper());
-			catShelter.addCat(cat);
+			
+			jdbcCatDAO.addCat(cat);
 			
 			return "redirect:/list";
 		}
@@ -62,7 +65,7 @@ public class CatsController {
 	@RequestMapping("/cat-{id}")
 	public String catInfo(@PathVariable("id") Integer id, Model model) {
 		
-		model.addAttribute("cat", catShelter.getCatById(id));
+		model.addAttribute("cat", jdbcCatDAO.getCatById(id));
 		return "info";
 	}
 }

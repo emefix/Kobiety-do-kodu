@@ -1,8 +1,8 @@
 package pl.martitafilix.cats.dto;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 public class CatDTO {
@@ -13,12 +13,13 @@ public class CatDTO {
 	@Pattern(regexp="[0-9]{4}.[0-1]?[0-9].[0-3]?[0-9]")
 	private String 	date_of_birth;
 	
-	@Min(0) @Max(50)
+	@NotNull @Min(0)
 	private Float 	weight;
 	
 	@NotBlank
 	private String	name_of_catKeeper;
 	
+	// Getters and setters:
 	
 	public String getName() {
 		return name;

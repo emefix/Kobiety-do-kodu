@@ -98,3 +98,10 @@ TagLib is a library of tags, that are artifacts. These artifacts we can use in v
 The EL (Expression Language) is a standard for expressions and scrips in views and use by ${}. The El can be ignored by isElLIgnored=true.
 
 In the Celebrity app, there is a form of adding a new celebrity. It works with GET and POST requests. This form is validated with @Valid annotation using the Hibernate Validator. To handle the form it is needed a DTO object (data transfer object). The DTO object will be a model attribute with @ModelAttribute annotation of a request method. A BindingResult object checks whether the form was properly verified.
+
+_____________________________________________________
+Lesson #11: Database connectivity 
+
+JDBC (Java DataBase Connectivity) is an interface that allows connecting to a database. 
+In the Cats app, there was an implementation of database MySQL. We display cat data from the database, add a new cat to the database and display detailed information about a cat. 
+A website display cat data from the database, add a new cat to the database, and display detailed information about a cat.

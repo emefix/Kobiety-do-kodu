@@ -18,15 +18,15 @@
 		<table>
 			<thead>
 				<tr>
-					<th>nr</th>
+					<th>Nr</th>
 					<th>Name</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${cats}" var="cat" varStatus="status">
 					<tr>
-						<td>${status.index+1}</td>
-						<td><a href="<c:url value="cat-${status.index}"/>">${cat.name}</a></td>
+						<td>${status.index +1}</td>
+						<td><a href="<c:url value="cat-${cat.id}"/>">${cat.name}</a></td><%-- ${status.index} --%>
 					</tr>
 				</c:forEach>
 			</tbody>

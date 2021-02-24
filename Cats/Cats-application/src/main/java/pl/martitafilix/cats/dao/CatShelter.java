@@ -1,4 +1,4 @@
-package pl.martitafilix.cats;
+package pl.martitafilix.cats.dao;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import pl.martitafilix.cats.model.Cat;
 
 @Repository
-public class CatShelter {
+public class CatShelter implements CatDAO {
 
 	private List<Cat> cats;
 		
@@ -19,15 +19,18 @@ public class CatShelter {
 		initData();
 	}
 
+	@Override
 	public List<Cat> getCats() {
 		return this.cats;
 	}
 	
+	@Override
 	public void addCat(Cat cat) {
 		this.cats.add(cat);
 //		System.out.println("Added the cat to the cat shelter.");
 	}
 	
+	@Override
 	public Cat getCatById(Integer id) {
 		
 		if(id < cats.size()) {

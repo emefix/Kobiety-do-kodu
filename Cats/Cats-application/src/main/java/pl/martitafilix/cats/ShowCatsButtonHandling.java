@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import pl.martitafilix.cats.dao.CatShelter;
 import pl.martitafilix.cats.model.Cat;
 
 public class ShowCatsButtonHandling extends ButtonHandling {

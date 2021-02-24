@@ -9,10 +9,10 @@
 <title>Information about a cat</title>
 <style type="text/css">
 span {
-	display: inline-block;
-	width: 200px;
-	margin: 5px, 5px, 5px, 5px;
-	text-align: left;
+	display: 	inline-block;
+	width: 		200px;
+	margin: 	5px, 5px, 5px, 5px;
+	text-align:	left;
 }
 </style>
 </head>
@@ -24,7 +24,9 @@ span {
 	<div align="center">
 		<h2>Information about the cat</h2>
 
-		<span>Name:</span> <span>${cat.name}</span>
+		<span>Id:</span><span>${cat.id}</span>
+		<br />
+		<span>Name:</span><span>${cat.name}</span>
 		<br /> 
 		<span>Date of birth:</span> 
 		<span><fmt:formatDate 

@@ -11,26 +11,19 @@
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-	<context:component-scan
-		base-package="pl.martitafilix" />
+	<context:component-scan	base-package="pl.martitafilix" />
 
 	<context:annotation-config />
 
 	<mvc:annotation-driven /> 
 	
-	<bean 
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix"><value>/WEB-INF/views/</value></property>
-		<property name="suffix"><value>.jsp</value></property>
-	</bean>
-	<bean 
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-		id="messageSource">
-		<property name="basename"><value>/WEB-INF/messages</value></property>
-	</bean>
-<!-- 	<bean id="validator" 
-		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <property name="validationMessageSource" ref="messageSource"/>
-	</bean> -->
+	<!-- View Resolver file-->
+	<import resource="spring-viewResolver.xml" />
+	
+	<!-- Validation message file-->
+	<import resource="spring-messageSource.xml" />
+	
+	<!-- DataSource -->
+	<import resource="spring-dataSource.xml" />
 	
 </beans>

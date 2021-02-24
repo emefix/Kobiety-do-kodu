@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
+import pl.martitafilix.cats.dao.CatShelter;
+
 public class ButtonHandling implements ActionListener {
 
 	protected JLabel 		_label_showInfo;

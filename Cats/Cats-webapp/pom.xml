@@ -16,48 +16,50 @@
 	<packaging>war</packaging>
 	<name>Cats-webapp</name>
 
+    <properties>
+        <spring.version>5.3.3</spring.version>
+    </properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>pl.martitafilix</groupId>
 			<artifactId>Cats-application</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<!-- Spring 5 dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>5.3.3</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.3.3</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>5.3.3</version>
+			<version>${spring.version}</version>
 		</dependency>
 		
-		<!-- Servlet Dependency -->
+		<!-- Java Servlet dependency -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>4.0.1</version>
 		</dependency>
-		<!-- Hibernate Validator Depndancy -->
-		<dependency>
-		    <groupId>org.hibernate.validator</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		    <version>6.2.0.Final</version>
-		</dependency>
-	    <!-- JSP Dependency -->
+		
+	    <!-- JSP dependency -->
 	    <dependency>
 		    <groupId>javax.servlet.jsp</groupId>
 		    <artifactId>javax.servlet.jsp-api</artifactId>
 		    <version>2.3.3</version>
 		    <scope>provided</scope>
 		</dependency>
-		<!-- JSTL Dependency -->
+		
+		<!-- JSTL dependency -->
 		<dependency>
 		    <groupId>org.apache.taglibs</groupId>
 		    <artifactId>taglibs-standard-spec</artifactId>
@@ -68,7 +70,37 @@
 		    <artifactId>taglibs-standard-impl</artifactId>
 		    <version>1.2.5</version>
 		</dependency>
+				
+		<!-- Hibernate Validator dependency -->
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.2.0.Final</version>
+		</dependency>
+		
+		<!-- Spring JDBC dependency for DriverManagerDataSource-->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
 
+		<!-- MySQL database dependency -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.23</version>
+		</dependency>
+		
+		<!-- Firebase database dependency -->
+		<dependency>
+		    <groupId>com.google.firebase</groupId>
+		    <artifactId>firebase-admin</artifactId>
+		    <version>6.11.0</version>
+		</dependency>
+
+
+		
 	</dependencies>
 
 </project>

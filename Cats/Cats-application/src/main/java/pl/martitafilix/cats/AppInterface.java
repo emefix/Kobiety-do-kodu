@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import pl.martitafilix.cats.dao.CatShelter;
+
 public class AppInterface extends JFrame {
 
 	//region Constructor
