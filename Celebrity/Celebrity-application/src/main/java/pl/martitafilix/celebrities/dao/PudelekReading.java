@@ -1,5 +1,4 @@
-package pl.martitafilix.celebrities;
-
+package pl.martitafilix.celebrities.dao;
 
 public class PudelekReading extends Reading {
 

@@ -1,5 +1,4 @@
-<project 
-	xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 	https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -16,132 +15,141 @@
 	<packaging>war</packaging>
 	<name>Celebrity-webapp</name>
 
+	<properties>
+		<spring.version>5.3.3</spring.version>
+    	<slf4j.version>2.0.0-alpha1</slf4j.version>		
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>pl.martitafilix</groupId>
 			<artifactId>Celebrity-application</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
+		<!-- Spring 5 dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>5.3.3</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.3.3</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>5.3.3</version>
+			<version>${spring.version}</version>
 		</dependency>
-		<!--<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>5.3.3</version>
+		<!--<dependency> 
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-web</artifactId> 
+			<version>${spring.version}</version> 
 		</dependency>-->
 
-        <!-- Servlet Dependency -->
+		<!-- Java Servlet dependency -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>4.0.1</version>
 		</dependency>
-<!-- 	   <dependency>
-	        <groupId>javax.servlet.jsp</groupId>
-	        <artifactId>jsp-api</artifactId>
-	        <version>2.2</version>
-	        <scope>provided</scope>
-	    </dependency> -->
-	    
-	    <!-- JSP Dependency -->
-	    <dependency>
-		    <groupId>javax.servlet.jsp</groupId>
-		    <artifactId>javax.servlet.jsp-api</artifactId>
-		    <version>2.3.3</version>
-		    <scope>provided</scope>
-		</dependency>	
-<!-- 	    <dependency>
-	        <groupId>javax.servlet.jsp.jstl</groupId>
-	        <artifactId>jstl</artifactId>
-	        <version>1.2</version>
-	    </dependency> -->	
-<!-- 		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
-		</dependency> -->
-<!-- 		<dependency>
-		    <groupId>taglibs</groupId>
-		    <artifactId>standard</artifactId>
-		    <version>1.1.2</version>
-		</dependency> -->
-<!-- 		<dependency>
-		    <groupId>javax.servlet.jsp.jstl</groupId>
-		    <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-		    <version>1.2.2</version>
-		</dependency> -->
-		
+
+	    <!-- JSP dependency -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- JSTL Dependency -->
 		<dependency>
-		    <groupId>org.apache.taglibs</groupId>
-		    <artifactId>taglibs-standard-spec</artifactId>
-		    <version>1.2.5</version>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-spec</artifactId>
+			<version>1.2.5</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.apache.taglibs</groupId>
-		    <artifactId>taglibs-standard-impl</artifactId>
-		    <version>1.2.5</version>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-impl</artifactId>
+			<version>1.2.5</version>
 		</dependency>
 		
-		<!-- Tomcat Dependancy -->
+		<!-- Hibernate Validator dependency -->
 		<dependency>
-		    <groupId>org.apache.tomcat</groupId>
-		    <artifactId>tomcat-el-api</artifactId>
-		    <version>10.0.2</version>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.2.0.Final</version>
 		</dependency>
+		
+		<!-- <dependency> 
+				<groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-starter-web</artifactId> 
+				<version>2.4.2</version> 
+			</dependency> 
+			<dependency> 
+				<groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-devtools</artifactId> 
+				<version>2.4.2</version> 
+			</dependency> -->
+		
+		<!-- Spring JDBC dependency for DriverManagerDataSource-->
 		<dependency>
-		    <groupId>org.apache.tomcat</groupId>
-		    <artifactId>tomcat-jasper-el</artifactId>
-		    <version>9.0.43</version>
-		</dependency>
-
-		<!-- https://www.codejava.net/frameworks/spring/spring-mvc-form-validation-example-with-bean-validation-api -->
-		<!-- Hibernate and validation Depndancy -->
-<!--  		<dependency>
-		    <groupId>javax.validation</groupId>
-		    <artifactId>validation-api</artifactId>
-		    <version>2.0.1.Final</version>
-		</dependency> -->
-<!-- 		<dependency>
-		    <groupId>org.glassfish</groupId>
-		    <artifactId>jakarta.el</artifactId>
-		    <version>4.0.0</version>
-		</dependency> -->
-<!-- 		<dependency>
-		    <groupId>org.hibernate.validator</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		    <version>7.0.1.Final</version>
-		</dependency> nie dzialal-->
-		<dependency>
-		    <groupId>org.hibernate.validator</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		    <version>6.2.0.Final</version>
-		</dependency>
-<!-- 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-web</artifactId>
-		    <version>2.4.2</version>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${spring.version}</version>
 		</dependency>
 
+		<!-- MySQL database dependency -->
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-devtools</artifactId>
-		    <version>2.4.2</version>
-		</dependency> -->
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.23</version>
+		</dependency>
+		<!-- JPA dependency -->
+		<dependency>
+		    <groupId>org.hibernate.orm</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>6.0.0.Alpha6</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate.orm</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>6.0.0.Alpha6</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>javax.persistence-api</artifactId>
+		    <version>2.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.transaction</groupId>
+		    <artifactId>jta</artifactId>
+		    <version>1.1</version>
+		</dependency>
+		
+		<!-- SLF4J Logger -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>${slf4j.version}</version>
+		</dependency>
 
 	</dependencies>
 </project>

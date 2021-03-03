@@ -100,8 +100,15 @@ The EL (Expression Language) is a standard for expressions and scrips in views a
 In the Celebrity app, there is a form of adding a new celebrity. It works with GET and POST requests. This form is validated with @Valid annotation using the Hibernate Validator. To handle the form it is needed a DTO object (data transfer object). The DTO object will be a model attribute with @ModelAttribute annotation of a request method. A BindingResult object checks whether the form was properly verified.
 
 _____________________________________________________
-Lesson #11: Database connectivity 
+Lesson #11: Database connectivity JDBC
 
 JDBC (Java DataBase Connectivity) is an interface that allows connecting to a database. 
 In the Cats app, there was an implementation of database MySQL. We display cat data from the database, add a new cat to the database and display detailed information about a cat. 
-A website display cat data from the database, add a new cat to the database, and display detailed information about a cat.
+A website displays cat data from the database, adds a new cat to the database, and displays detailed information about a cat.
+
+_____________________________________________________
+Lesson #12: Database with JPA 
+
+Object-relational mapping (ORM)
+An entity is a lightweight persistence domain object. Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table. 
+In the Celebrity app, there was an implementation of the database MySQL. In the spring-jpa.xml file, there is a configuration of the EntityManager.

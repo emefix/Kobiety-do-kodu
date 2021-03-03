@@ -1,4 +1,4 @@
-package pl.martitafilix.celebrities;
+package pl.martitafilix.celebrities.dao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,24 +9,33 @@ import org.springframework.stereotype.Repository;
 import pl.martitafilix.celebrities.domain.Celebrity;
 
 @Repository
-public class Reading {
+public class Reading implements CelebrityDAO {
 
-	private List<Celebrity> celebrities;// = new ArrayList<Celebrity>();
+	private List<Celebrity> celebrities;
 
 	public Reading() {
 		this.celebrities = new ArrayList<Celebrity>();
 		this.initData();
 	}
-	
+	/**
+	 * Add a celebrity.
+	 */
+	@Override
 	public void addCelebrity(Celebrity c) {
 		this.celebrities.add(c);
 //		System.out.println("added: " + c.getName());
 	}
-
+	/**
+	 * Get all celebrities.
+	 */
+	@Override
 	public List<Celebrity> getCelebrities() {
 		return this.celebrities;
 	}
-	
+	/**
+	 * Get celebrity by id.
+	 */
+	@Override
 	public Celebrity getCelebrityById(Integer id) {
 		
 		if(id < celebrities.size()) {

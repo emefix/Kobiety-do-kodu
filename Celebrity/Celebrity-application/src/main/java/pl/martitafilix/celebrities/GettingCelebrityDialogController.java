@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import pl.martitafilix.celebrities.dao.Reading;
 import pl.martitafilix.celebrities.domain.Celebrity;
 
 public class GettingCelebrityDialogController {

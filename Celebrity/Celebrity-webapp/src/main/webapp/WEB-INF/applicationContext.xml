@@ -11,29 +11,25 @@
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-<!-- 	Provide support for component scanning 
-		Automatyczna obsługa wszystkich klas z adnotacjami w tym pakiecie-->
-	<context:component-scan
-		base-package="pl.martitafilix" /> 
-<!-- To na przyszłość, pozwoli nam korzystać z adnotacji także w klasach, które byśmy skonfigurowali ręcznie -->
+<!-- Provide support for component scanning 
+	Automatyczna obsługa wszystkich klas z adnotacjami w tym pakiecie-->
+	<context:component-scan base-package="pl.martitafilix" /> 
+<!-- To na przyszłość, pozwoli korzystać z adnotacji także w klasach, które byśmy skonfigurowali ręcznie -->
 	<context:annotation-config /> 
 <!--Provide support for conversion, formatting and validation -->
 	<mvc:annotation-driven /> 
 	
-	<bean 
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix"><value>/WEB-INF/views/</value></property>
-		<property name="suffix"><value>.jsp</value></property>
-	</bean>
+	<!-- View Resolver file-->
+	<import resource="spring-viewResolver.xml" />
 	
-<!-- 	<bean id="validator" 
-		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-	</bean> -->
+	<!-- Validation message file-->
+	<import resource="spring-messageSource.xml" />
 	
-	<bean 
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-		id="messageSource">
-		<property name="basename"><value>/WEB-INF/messages</value></property>
-	</bean>
+	<!-- DataSource file -->
+	<import resource="spring-dataSource.xml" />
+	
+	<!-- JPA file -->
+	<import resource="spring-jpa.xml" />
+	
 	
 </beans>

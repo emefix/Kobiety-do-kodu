@@ -10,6 +10,7 @@ import java.util.function.Predicate;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pl.martitafilix.celebrities.dao.Reading;
 import pl.martitafilix.celebrities.domain.Celebrity;
 
 public class CelebrityGUIController {

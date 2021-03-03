@@ -22,7 +22,7 @@
 					<c:forEach items="${celebrities}" var="celebrity" varStatus="status">
 						<tr>
 							<td>${status.index}</td>
-							<td><a href="<c:url value="celebrity-${status.index}" />">${celebrity.name}</a></td>
+							<td><a href="<c:url value="celebrity-${celebrity.id}" />">${celebrity.name}</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

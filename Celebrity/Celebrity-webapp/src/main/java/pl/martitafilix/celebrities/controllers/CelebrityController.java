@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.martitafilix.celebrities.Reading;
+
+import pl.martitafilix.celebrities.dao.CelebrityDAO;
+import pl.martitafilix.celebrities.dao.JpaCelebrityDAO;
+import pl.martitafilix.celebrities.dao.Reading;
 import pl.martitafilix.celebrities.domain.Celebrity;
 import pl.martitafilix.celebrities.dto.CelebrityDTO;
 
@@ -18,11 +21,14 @@ import pl.martitafilix.celebrities.dto.CelebrityDTO;
 public class CelebrityController {
 
 	@Autowired
-	private Reading reading;
+	private JpaCelebrityDAO celebrityDAO;
+	
+//	@Autowired
+//	private Reading reading;
 
 	@RequestMapping("/list")
 	public String celebrityList(Model model) {
-		model.addAttribute("celebrities", reading.getCelebrities());
+		model.addAttribute("celebrities", celebrityDAO.getCelebrities());
 		return "list";
 	}
 
@@ -47,7 +53,7 @@ public class CelebrityController {
 			celebrity.setCanSing(celebrityDTO.isCanSing());
 			celebrity.setCanAct(celebrityDTO.isCanAct());
 			celebrity.setCanDance(celebrityDTO.isCanDance());
-			reading.addCelebrity(celebrity);
+			celebrityDAO.addCelebrity(celebrity);
 			
 			System.out.println(celebrity.printData());
 			return "redirect:/list";
@@ -56,9 +62,8 @@ public class CelebrityController {
 	}
 
 	@RequestMapping("/celebrity-{id}")
-	public String celebrityInfo(@PathVariable("id") 
-			Integer id, Model model) {
-		model.addAttribute("celebrity", reading.getCelebrityById(id));
+	public String celebrityInfo(@PathVariable("id") Integer id, Model model) {
+		model.addAttribute("celebrity", celebrityDAO.getCelebrityById(id));
 		return "info";
 	}
 }

@@ -2,4 +2,4 @@ eclipse.preferences.version=1
 encoding//src/main/java/pl/martitafilix/celebrities/CelebrityGUI.java=UTF-8
 encoding//src/main/java/pl/martitafilix/celebrities/CelebrityGUIController.java=UTF-8
 encoding//src/main/java/pl/martitafilix/celebrities/GettingCelebrityDialog.java=UTF-8
-encoding//src/main/java/pl/martitafilix/celebrities/Reading.java=UTF-8
+encoding//src/main/java/pl/martitafilix/celebrities/dao/Reading.java=UTF-8

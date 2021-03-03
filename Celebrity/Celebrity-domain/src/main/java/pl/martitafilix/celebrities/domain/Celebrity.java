@@ -1,15 +1,26 @@
 package pl.martitafilix.celebrities.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="celebrities")
 public class Celebrity {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer id;
+	
 	private String 	name;
 	private boolean canSing;
 	private boolean canAct;
 	private boolean canDance;
 	
-	public Celebrity() {
-	}
-	
+	public Celebrity() {}
+
 	public Celebrity(String name, boolean canSing, boolean canAct, boolean canDance) {
 
 		this.name 		= name;
@@ -17,7 +28,14 @@ public class Celebrity {
 		this.canAct 	= canAct;
 		this.canDance 	= canDance;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
