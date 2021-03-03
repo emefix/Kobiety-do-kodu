@@ -6,7 +6,8 @@ import pl.martitafilix.cats.model.Cat;
 
 public interface CatDAO {
 
-	public List<Cat> getCats();
-	public void addCat(Cat cat);
-	public Cat getCatById(Integer id);
+	public abstract List<Cat> getCats();
+	public abstract void addCat(Cat cat);
+	public abstract Cat getCatById(Integer id);
+	public abstract Cat getCatById(String id);
 }

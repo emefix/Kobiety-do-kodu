@@ -23,7 +23,8 @@
 	<!-- Validation message file-->
 	<import resource="spring-messageSource.xml" />
 	
-	<!-- DataSource -->
+	<!-- DataSource file -->
 	<import resource="spring-dataSource.xml" />
+	
 	
 </beans>

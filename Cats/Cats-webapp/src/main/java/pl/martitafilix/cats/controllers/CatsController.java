@@ -13,22 +13,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pl.martitafilix.cats.dao.CatShelter;
 import pl.martitafilix.cats.dao.JdbcCatDAO;
 import pl.martitafilix.cats.dto.CatDTO;
 import pl.martitafilix.cats.model.Cat;
+import pl.martitafilix.cats.services.FirebaseCatDAO;
 
 @Controller
+//@RestController
 public class CatsController {
 
-//	@Autowired private CatShelter catShelter;
+/* Fields: */
+//	@Autowired private CatShelter catDAO;
 	
-	@Autowired
-	private JdbcCatDAO jdbcCatDAO;
+//	@Autowired
+//	private JdbcCatDAO catDAO;
+	
+	@Autowired 
+	private FirebaseCatDAO catDAO;	
+/* Methods: */
 	
 	@RequestMapping("/list")
 	public String catList(Model model) {
 		
-		model.addAttribute("cats", jdbcCatDAO.getCats());
+		model.addAttribute("cats", catDAO.getCats());
 		return "list"; 
 	}
 	
@@ -41,7 +49,7 @@ public class CatsController {
 	
 	@PostMapping("/add")
 	public String handleCatAddingForm(
-			@Validated @ModelAttribute("catDTO") CatDTO catDTO, BindingResult result) {
+			/* @RequestBody */ @Validated @ModelAttribute("catDTO") CatDTO catDTO, BindingResult result) {
 		
 		if( !result.hasErrors()) {
 			
@@ -55,7 +63,7 @@ public class CatsController {
 			cat.setWeight(catDTO.getWeight());
 			cat.setName_of_catKeeper(catDTO.getName_of_catKeeper());
 			
-			jdbcCatDAO.addCat(cat);
+			catDAO.addCat(cat);
 			
 			return "redirect:/list";
 		}
@@ -63,9 +71,9 @@ public class CatsController {
 	}
 	
 	@RequestMapping("/cat-{id}")
-	public String catInfo(@PathVariable("id") Integer id, Model model) {
+	public String catInfo(@PathVariable("id") String id, Model model) {
 		
-		model.addAttribute("cat", jdbcCatDAO.getCatById(id));
+		model.addAttribute("cat", catDAO.getCatById(id));
 		return "info";
 	}
 }

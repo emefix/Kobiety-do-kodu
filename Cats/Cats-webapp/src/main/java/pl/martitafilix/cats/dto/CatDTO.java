@@ -7,6 +7,8 @@ import javax.validation.constraints.Pattern;
 
 public class CatDTO {
 
+/* Fields: */
+	
 	@NotBlank
 	private String	name;
 	
@@ -19,7 +21,7 @@ public class CatDTO {
 	@NotBlank
 	private String	name_of_catKeeper;
 	
-	// Getters and setters:
+/* Getters and setters: */
 	
 	public String getName() {
 		return name;

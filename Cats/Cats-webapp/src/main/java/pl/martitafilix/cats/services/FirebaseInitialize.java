@@ -1,6 +1,7 @@
-package pl.martitafilix.cats;
+package pl.martitafilix.cats.services;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import javax.annotation.PostConstruct;
 
@@ -12,22 +13,30 @@ import com.google.firebase.FirebaseOptions;
 
 @Service
 public class FirebaseInitialize {
-
+	
 	@PostConstruct
     public void initialize() {
+		
+		String fileName = "c:/Users/admin/Documents/PrivateKeys_and_Tokens/firebase-serviceAccount.json";
         try {
-            FileInputStream serviceAccount = 
-            		new FileInputStream("./the-catsapp-firebase-adminsdk-ped7x-bf08d7c69f.json");
-
+            FileInputStream serviceAccount = new FileInputStream(fileName);
+//        	FirebaseOptions options = FirebaseOptions.builder()
+//        		    .setCredentials(GoogleCredentials.getApplicationDefault())
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .setDatabaseUrl("https://chatapp-e6e15.firebaseio.com")
+                    .setDatabaseUrl("https://the-catsapp.firebaseio.com")
                     .build();
 
-            FirebaseApp.initializeApp(options);
-        } catch (Exception e) {
+            if(FirebaseApp.getApps().isEmpty()) {
+                FirebaseApp.initializeApp(options);
+                System.out.println("The default FirebasApp has been initialized...");
+            }
+        } catch (FileNotFoundException e) {
+        	e.printStackTrace();
+            System.out.println("The sevice account file doesn't exists!");
+		} catch (Exception e) {
+			System.out.println("Another error!");
             e.printStackTrace();
         }
-
     }
 }

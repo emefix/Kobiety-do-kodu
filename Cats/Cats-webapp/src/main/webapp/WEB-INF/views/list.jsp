@@ -18,7 +18,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Nr</th>
+					<th>#</th>
 					<th>Name</th>
 				</tr>
 			</thead>

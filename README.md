@@ -112,3 +112,12 @@ Lesson #12: Database with JPA
 Object-relational mapping (ORM)
 An entity is a lightweight persistence domain object. Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table. 
 In the Celebrity app, there was an implementation of the database MySQL. In the spring-jpa.xml file, there is a configuration of the EntityManager.
+
+_____________________________________________________
+Lesson #NoSQL database - Firebase
+
+Firebase cloud storage connectivity in the Cat app. 
+Create a project and generate its API in the form of a JSON file, which will have the authorization version.
+Next, create cloud storage.
+The downloaded file must be opened in the application with the service account class code with the annotation @SERVICE.
+The method with the @PostConstruct annotation contained in it will be called immediately after the dependency injection to initialize the database connection.

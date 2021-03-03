@@ -18,6 +18,8 @@ import pl.martitafilix.cats.model.Cat;
 @Repository
 public class JdbcCatDAO implements CatDAO {
 
+/* Fields: */
+	
 	@Autowired
 	private DataSource dataSource;
 	
@@ -26,15 +28,16 @@ public class JdbcCatDAO implements CatDAO {
 	private PreparedStatement	ps;
 	private ResultSet 			rs;
     
+/* Constructors: */
+
 	public JdbcCatDAO(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 	
-	/*
-	 * public void setDataSource(DataSource dataSource) { 
-	 * 		this.dataSource = dataSource; }
+/* Methods: */
+	/**
+	 * Add a cat.
 	 */
-	
 	@Override
 	public List<Cat> getCats() {
 		
@@ -46,10 +49,10 @@ public class JdbcCatDAO implements CatDAO {
 		try {
 			conn 	= dataSource.getConnection();
 			ps 		= conn.prepareStatement(sql);
-//			Statement 			s 	= conn.createStatement();
+//			Statement s	= conn.createStatement();
 			
 			rs 	= ps.executeQuery();
-//			ResultSet rs1 	= ps.executeQuery(sqlSelect);
+//			ResultSet rs1 = ps.executeQuery(sqlSelect);
 
 			while (rs.next()) {
 				Cat cat = getCatFromDB(rs);
@@ -70,7 +73,9 @@ public class JdbcCatDAO implements CatDAO {
 			}
 		}
 	}
-
+	/**
+	 * Get all cats.
+	 */
 	@Override
 	public void addCat(Cat cat) {
 
@@ -103,9 +108,11 @@ public class JdbcCatDAO implements CatDAO {
 			}
 		}
 	}
-
+	/**
+	 * Get cat by id.
+	 */
 	@Override
-	public Cat getCatById(Integer id) {
+	public Cat getCatById(String id) {
 
 		sql = "SELECT * FROM cats WHERE id = ?";
 		conn = null;
@@ -114,7 +121,7 @@ public class JdbcCatDAO implements CatDAO {
 			conn 	= dataSource.getConnection();
 			ps 		= conn.prepareStatement(sql);
 			
-			ps.setInt(1, id);
+			ps.setString(1, id);
 			Cat cat = null;
 			
 			rs = ps.executeQuery();
@@ -138,9 +145,14 @@ public class JdbcCatDAO implements CatDAO {
 		}
 	}
 	
+	@Override
+	public Cat getCatById(Integer id) {
+		return null;
+	}
+	
 	private Cat getCatFromDB(ResultSet rs) throws SQLException {
 		
-		Integer	id 			= rs.getInt("id");
+		String	id 			= rs.getString("id");
 		String	name		= rs.getString("name");
 		Date	date		= rs.getDate("date_of_birth");
 		Float	weight		= rs.getFloat("weight");
