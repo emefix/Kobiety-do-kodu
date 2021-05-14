@@ -4,20 +4,38 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
-	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
-	http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
-	http://www.springframework.org/schema/context 
-	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa" 
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/data/jpa
+	    http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+	">
 
-<!-- Provide support for component scanning 
-	Automatyczna obsługa wszystkich klas z adnotacjami w tym pakiecie-->
-	<context:component-scan base-package="pl.martitafilix" /> 
-<!-- To na przyszłość, pozwoli korzystać z adnotacji także w klasach, które byśmy skonfigurowali ręcznie -->
+	<!-- Provide support for component scanning -->
+	<context:component-scan base-package="pl.martitafilix.celebrities" /> 
+	
+	<!-- To na przyszłość, pozwoli korzystać z adnotacji także w klasach, które byśmy skonfigurowali ręcznie -->
 	<context:annotation-config /> 
-<!--Provide support for conversion, formatting and validation -->
+	
+	<!--Provide support for conversion, formatting and validation -->
 	<mvc:annotation-driven /> 
+	
+	<!-- Provide support for jpa transactions -->
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager" />
+	
+	<!-- Provide support for repository scanning -->
+	<jpa:repositories base-package="pl.martitafilix.celebrities"/>
+	
+	<!-- Provide support for resource scanning such as css files. -->
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
 	
 	<!-- View Resolver file-->
 	<import resource="spring-viewResolver.xml" />
@@ -30,6 +48,5 @@
 	
 	<!-- JPA file -->
 	<import resource="spring-jpa.xml" />
-	
 	
 </beans>

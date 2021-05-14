@@ -102,7 +102,7 @@ public class CelebrityGUIController {
 		this._gui.get_listModel().addElement(celebrity);
 	}
 	
-	private void printTalent(CheckTalent checker, String talent) { 
+	private void printTalent(I_CheckTalent checker, String talent) { 
 		
 		this._gui.get_area_celebrityDesc().setText(talent + ":\n");
 		

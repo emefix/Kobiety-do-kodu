@@ -1,5 +1,7 @@
 package pl.martitafilix.celebrities.controllers;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,31 +12,31 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import pl.martitafilix.celebrities.dao.CelebrityDAO;
-import pl.martitafilix.celebrities.dao.JpaCelebrityDAO;
-import pl.martitafilix.celebrities.dao.Reading;
+import pl.martitafilix.celebrities.CelebrityDAOChoice;
+import pl.martitafilix.celebrities.CelebrityDAOChoice.DAO;
 import pl.martitafilix.celebrities.domain.Celebrity;
 import pl.martitafilix.celebrities.dto.CelebrityDTO;
 
 @Controller
 public class CelebrityController {
-
-	@Autowired
-	private JpaCelebrityDAO celebrityDAO;
 	
-//	@Autowired
-//	private Reading reading;
+	@Autowired
+	private CelebrityDAOChoice celebrityDAO;
 
 	@RequestMapping("/list")
 	public String celebrityList(Model model) {
-		model.addAttribute("celebrities", celebrityDAO.getCelebrities());
+		
+		model.addAttribute("celebrities", celebrityDAO.getDAO().getCelebrities());
 		return "list";
 	}
 
 //	@RequestMapping(value = "/add", method = RequestMethod.GET )
 	@GetMapping("/add")
-	public String celebrityAddingForm(Model model) { 
+	public String celebrityAddingForm(Model model) {
+		
 		CelebrityDTO celebrityDTO = new CelebrityDTO();
 		model.addAttribute("celebrityDTO", celebrityDTO);
 		return "add";
@@ -43,7 +45,7 @@ public class CelebrityController {
 //	@RequestMapping(value = "/add" , method = RequestMethod.POST )
 	@PostMapping("/add")
 	public String handleCelebrityAddingForm(
-			@Validated @ModelAttribute("celebrityDTO") CelebrityDTO celebrityDTO, 
+			@Validated @ModelAttribute("celebrityDTO") CelebrityDTO celebrityDTO,
 			BindingResult result) {
 
 		if (!result.hasErrors()) {
@@ -53,8 +55,8 @@ public class CelebrityController {
 			celebrity.setCanSing(celebrityDTO.isCanSing());
 			celebrity.setCanAct(celebrityDTO.isCanAct());
 			celebrity.setCanDance(celebrityDTO.isCanDance());
-			celebrityDAO.addCelebrity(celebrity);
-			
+			celebrityDAO.getDAO().addCelebrity(celebrity);
+
 			System.out.println(celebrity.printData());
 			return "redirect:/list";
 		}
@@ -62,8 +64,55 @@ public class CelebrityController {
 	}
 
 	@RequestMapping("/celebrity-{id}")
-	public String celebrityInfo(@PathVariable("id") Integer id, Model model) {
-		model.addAttribute("celebrity", celebrityDAO.getCelebrityById(id));
+	public String celebrityInfo(Model model,
+			@PathVariable(value = "id") Integer id) {
+		
+		model.addAttribute("celebrity", celebrityDAO.getDAO().getCelebrityById(id));		
 		return "info";
+	}
+
+	@ResponseBody
+	@GetMapping("/dao")
+	public String celebrityDaoChoose(@RequestParam("dao") DAO dao, Model model/** , BindingResult result														 */) {
+
+//		if (!result.hasErrors()) {
+		DAO daos[] = DAO.values();
+		model.addAttribute("daos", daos);
+
+		Arrays.asList(daos).forEach(d -> {
+			System.out.print(d + ", ");
+			System.out.println();
+		});
+
+		return "response for: " + dao;
+//		return "redirect:/list";
+	}
+
+	@GetMapping("/")
+	public String daoChoose(Model model) {
+		
+		DAO daos[] = DAO.values();
+		model.addAttribute("daos", daos);
+
+//		Arrays.asList(daos).forEach(d -> {
+//			System.out.print(d + ", ");
+//			System.out.println();
+//		});
+
+		return "index";
+	}
+
+	@PostMapping("/")
+	public String handleDaoChoose(@ModelAttribute("dao") DAO dao, 
+			BindingResult result) {
+
+		if (!result.hasErrors()) {
+
+			celebrityDAO.setCelebrityDAO(dao);
+			System.out.println(dao);
+
+			return "redirect:/list";
+		}
+		return "index";
 	}
 }

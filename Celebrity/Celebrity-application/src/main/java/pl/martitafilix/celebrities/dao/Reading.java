@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import pl.martitafilix.celebrities.domain.Celebrity;
 
-@Repository
-public class Reading implements CelebrityDAO {
+@Component
+//@Service
+//@Repository
+public class Reading implements I_CelebrityDAO {
 
 	private List<Celebrity> celebrities;
 
@@ -22,6 +24,7 @@ public class Reading implements CelebrityDAO {
 	 */
 	@Override
 	public void addCelebrity(Celebrity c) {
+		c.setId(celebrities.size());
 		this.celebrities.add(c);
 //		System.out.println("added: " + c.getName());
 	}
@@ -58,12 +61,12 @@ public class Reading implements CelebrityDAO {
 		
 		this.celebrities.addAll(
 			Arrays.asList(
-				new Celebrity() {{	setName("Igor Herbut");			setCanSing(true);	}},
-				new Celebrity() {{	setName("Kayah");				setCanSing(true);	}},
-				new Celebrity() {{	setName("Maciej Zakościelny");	setCanAct(true);	}},
-				new Celebrity() {{	setName("Augustin Egurrola");	setCanDance(true);	}},
-				new Celebrity() {{	setName("Marcin Hakiel");		setCanDance(true);	}},
-				new Celebrity() {{	setName("Edyta Górniak");		setCanSing(true);	}}
+				new Celebrity() {{	setId(0); setName("Igor Herbut");		setCanSing(true);	}},
+				new Celebrity() {{	setId(1); setName("Kayah");				setCanSing(true);	}},
+				new Celebrity() {{	setId(2); setName("Maciej Zakościelny");setCanAct(true);	}},
+				new Celebrity() {{	setId(3); setName("Augustin Egurrola");	setCanDance(true);	}},
+				new Celebrity() {{	setId(4); setName("Marcin Hakiel");		setCanDance(true);	}},
+				new Celebrity() {{	setId(5); setName("Edyta Górniak");		setCanSing(true);	}}
 			)
 		);
 	}

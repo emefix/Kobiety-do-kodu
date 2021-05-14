@@ -121,3 +121,8 @@ Create a project and generate its API in the form of a JSON file, which will hav
 Next, create cloud storage.
 The downloaded file must be opened in the application with the service account class code with the annotation @SERVICE.
 The method with the @PostConstruct annotation contained in it will be called immediately after the dependency injection to initialize the database connection.
+
+_____________________________________________________
+Lesson #14: Database with Spring Data
+
+The Spring Data is a tool using the JPA, so the EntityManagerFactory is still needed in the Spring configuration file. Creating the I_CelebrityCrudRepository interface extending the Repository<> managed by the Spring Data and marked by the @Repository annotation. And then the using the new repository as a user class field marked by the @Autowired annotation. 

@@ -1,6 +1,5 @@
 package pl.martitafilix.celebrities.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,13 +16,11 @@ import pl.martitafilix.celebrities.domain.Celebrity;
 @Component
 //@Transactional
 //@Service
-public class JpaCelebrityDAO implements CelebrityDAO {
+public class JpaCelebrityDAO implements I_CelebrityDAO {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
-	
-	public JpaCelebrityDAO() {}
-	
+		
 	/**
 	 * Add a celebrity.
 	 */
@@ -33,6 +30,7 @@ public class JpaCelebrityDAO implements CelebrityDAO {
 		entityManager.merge(c);
 //		entityManager.persist(c);
 	}
+	
 	/**
 	 * Get all celebrities.
 	 */
@@ -51,8 +49,9 @@ public class JpaCelebrityDAO implements CelebrityDAO {
 		}
 		return celebrities;
 	}
+	
 	/**
-	 * Get celebrity by id.
+	 * Get a celebrity by id.
 	 */
 	@Override
 	@Transactional(readOnly=true)

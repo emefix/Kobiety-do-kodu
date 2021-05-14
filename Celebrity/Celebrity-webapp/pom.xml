@@ -1,7 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project 
+	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-	https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -107,7 +108,7 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>8.0.23</version>
 		</dependency>
-		<!-- JPA dependency -->
+		<!-- JPA dependencies -->
 		<dependency>
 		    <groupId>org.hibernate.orm</groupId>
 		    <artifactId>hibernate-core</artifactId>
@@ -115,7 +116,7 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate.orm</groupId>
-		    <artifactId>hibernate-core</artifactId>
+		    <artifactId>hibernate-entitymanager</artifactId>
 		    <version>6.0.0.Alpha6</version>
 		</dependency>
 		<dependency>
@@ -138,6 +139,19 @@
 		    <artifactId>jta</artifactId>
 		    <version>1.1</version>
 		</dependency>
+		
+		<!-- Spring Data JPA dependency -->
+		<!-- <dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-jpa</artifactId>
+		    <version>2.4.5</version>
+		</dependency> -->
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-jpa</artifactId>
+		    <version>2.1.4.RELEASE</version>
+		</dependency>
+		
 		
 		<!-- SLF4J Logger -->
 		<dependency>
